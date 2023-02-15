@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body className="bg-slate-400">
+      <body className="bg-gray-50">
         <Header />
         {children}
       </body>
