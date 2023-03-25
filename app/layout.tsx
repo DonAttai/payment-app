@@ -8,9 +8,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html className="bg-gray-800 text-gray-100 antialiased ">
       <head />
-      <body className="bg-gray-50">
+      <body>
         <Header />
         {children}
       </body>

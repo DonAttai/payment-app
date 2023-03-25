@@ -5,11 +5,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginForm } from "../../types";
 
 const schema = yup.object().shape({
-  username: yup.string().required(),
-  password: yup.string().min(4).max(32).required(),
+  Username: yup.string().required(),
+  Password: yup.string().min(4).max(32).required(),
 });
 
-const Register = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
@@ -22,7 +22,7 @@ const Register = () => {
   };
 
   return (
-    <div className=" flex items-center justify-center h-screen ">
+    <div className=" flex items-center justify-center h-screen">
       <form
         className="mx-auto w-5/6 md:w-1/4"
         onSubmit={handleSubmit(onSubmit)}
@@ -31,25 +31,25 @@ const Register = () => {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
-            placeholder="username"
-            {...register("username")}
+            placeholder="Username"
+            {...register("Username")}
           />
-          <p className="text-red-400">{errors.username?.message?.toString()}</p>
+          <p className="text-red-400">{errors.Username?.message?.toString()}</p>
         </div>
         <div className="mb-4">
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="password"
             placeholder="Password"
-            {...register("password")}
+            {...register("Password")}
             autoComplete="new-password"
           />
 
-          <p className="text-red-400">{errors.password?.message?.toString()}</p>
+          <p className="text-red-400">{errors.Password?.message?.toString()}</p>
         </div>
         <div>
           <button className="bg-blue-300 w-full py-2 rounded-md" type="submit">
-            Register
+            Login
           </button>
         </div>
       </form>
@@ -57,4 +57,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

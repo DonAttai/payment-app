@@ -1,10 +1,10 @@
 export type RegisterForm = {
-  firstname: string;
-  lastname: string;
-  username: string;
-  password: string;
+  Firstname: string;
+  Lastname: string;
+  Username: string;
+  Password: string;
 };
 export type LoginForm = {
-  username: string;
-  password: string;
+  Username: string;
+  Password: string;
 };
