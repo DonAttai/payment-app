@@ -2,8 +2,13 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { RegisterForm } from "../../types";
 
+type RegisterForm = {
+  Firstname: string;
+  Lastname: string;
+  Username: string;
+  Password: string;
+};
 const schema = yup.object().shape({
   Firstname: yup.string().required(),
   Lastname: yup.string().required(),
@@ -24,32 +29,46 @@ const Register = () => {
   };
 
   return (
-    <div className=" flex items-center justify-center h-screen ">
+    <div className=" flex flex-col gap-3 items-center justify-center mt-3">
+      <h3 className="text-2xl font-bold">Sign Up</h3>
       <form
-        className="mx-auto w-5/6 md:w-1/4 p-5 "
+        className="mx-auto w-5/6 md:w-1/4 p-5 border-solid border-1 text-slate-500 bg-white rounded-md shadow-2xl"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="mb-4">
+        <div className="mb-2">
+          <label htmlFor="" className="font-bold text-sm">
+            First Name
+          </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             {...register("Firstname")}
             placeholder="Firstname"
           />
-          <p className="text-red-400">
+          <p className="text-red-500 text-xs font-normal">
             {errors.Firstname?.message?.toString()}
           </p>
         </div>
-        <div className="mb-4">
+        <div className="mb-2">
+          <label htmlFor="" className="font-bold text-sm">
+            Last Name
+          </label>
+
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             {...register("Lastname")}
             placeholder="Lastname"
           />
-          <p className="text-red-400">{errors.Lastname?.message?.toString()}</p>
+          <p className="text-red-500 text-xs font-normal">
+            {errors.Lastname?.message?.toString()}
+          </p>
         </div>
-        <div className="mb-4">
+        <div className="mb-2">
+          <label htmlFor="" className="font-bold text-sm">
+            Username
+          </label>
+
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
@@ -57,9 +76,15 @@ const Register = () => {
             {...register("Username")}
             autoComplete="off"
           />
-          <p className="text-red-400">{errors.Username?.message?.toString()}</p>
+          <p className="text-red-500 text-xs font-normal">
+            {errors.Username?.message?.toString()}
+          </p>
         </div>
-        <div className="mb-4">
+        <div className="mb-2">
+          <label htmlFor="" className="font-bold text-sm">
+            Password
+          </label>
+
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="password"
@@ -67,11 +92,16 @@ const Register = () => {
             {...register("Password")}
             autoComplete="new-password"
           />
-          <p className="text-red-400">{errors.Password?.message?.toString()}</p>
+          <p className="text-red-500 text-xs font-normal">
+            {errors.Password?.message?.toString()}
+          </p>
         </div>
         <div>
-          <button className="bg-blue-300 w-full py-2 rounded-md" type="submit">
-            Register
+          <button
+            className="bg-blue-400 w-full py-2 rounded-md text-white font-bold"
+            type="submit"
+          >
+            Sign Up
           </button>
         </div>
       </form>

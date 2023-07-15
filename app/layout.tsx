@@ -1,6 +1,11 @@
 import "../styles/globals.css";
-// import Head from "./head";
 import Header from "./Header";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Payment App",
+  description: "Attai Payment App",
+};
 
 export default function RootLayout({
   children,
